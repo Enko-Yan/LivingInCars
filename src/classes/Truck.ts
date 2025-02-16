@@ -40,7 +40,9 @@ class Truck extends Vehicle implements AbleToTow {
   this.wheels = wheels;
   this.towingCapacity = towingCapacity;
 
-  this.wheels = (wheels.length !== 4) ? [new Wheel(), new Wheel(), new Wheel(), new Wheel()] : wheels;
+  this.wheels = (wheels.length !== 4) 
+  ? [new Wheel(), new Wheel(), new Wheel(), new Wheel()] 
+  : wheels;
 
 }
 
@@ -54,12 +56,26 @@ class Truck extends Vehicle implements AbleToTow {
     // ✅TODO: The constructor should initialize the properties of the Truck class
     // ✅TODO: The constructor should check if the wheels array has 4 elements and create 4 new default Wheel objects if it does not
 
-  // TODO: Implement the tow method from the AbleToTow interface
+  // ✅TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
-    // TODO: Get the make an model of the vehicle if it exists
-    // TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
-    // TODO: If it is, log that the vehicle is being towed
-    // TODO: If it is not, log that the vehicle is too heavy to be towed
+    const vehicleMake = vehicle.make;
+    const vehicleModel = vehicle.model;
+
+    if (vehicle.make && vehicle.model) {
+      console.log(`${vehicleMake} ${vehicleModel}`);
+    } else {
+      console.log("No vehicle make or model available.");
+    }
+
+    vehicle.weight <= this.towingCapacity 
+    ? console.log(`Your ${vehicleMake} ${vehicleModel} is getting towed!`) 
+    : console.log(`Your ${vehicleMake} ${vehicleModel} is too heavy to tow.`); 
+
+
+    // ✅TODO: Get the make an model of the vehicle if it exists
+    // ✅TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
+    // ✅TODO: If it is, log that the vehicle is being towed
+    // ✅TODO: If it is not, log that the vehicle is too heavy to be towed
   }
 
   // TODO: Override the printDetails method from the Vehicle class
