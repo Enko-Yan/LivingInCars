@@ -131,37 +131,6 @@ class Cli {
         // perform actions on the car
         this.performActions();
 
-        const truck = new Truck(
-          Cli.generateVin(),
-          answers.color,
-          answers.make,
-          answers.model,
-          parseInt(answers.year),
-          parseInt(answers.weight),
-          parseInt(answers.topSpeed),
-          [],
-          parseInt(answers.towingCapacity)
-        );
-        
-        this.vehicles.push(truck);
-        this.selectedVehicleVin = truck.vin;
-        this.performActions();
-
-        const motorBike = new Motorbike(
-          Cli.generateVin(),
-          answers.color,
-          answers.make,
-          answers.model,
-          parseInt(answers.year),
-          parseInt(answers.weight),
-          parseInt(answers.topSpeed),
-          []
-        );
-
-        this.vehicles.push(motorBike);
-        this.selectedVehicleVin = motorBike.vin;
-        this.performActions();
-
       });
   }
 
@@ -205,14 +174,22 @@ class Cli {
           message: 'Enter Towing Capacity',
         },
       ])
-      .then((answers) => {`
-        ${answers.color}
-        ${answers.make}
-        ${answers.model}
-        ${answers.year}
-        ${answers.weight}
-        ${answers.topSpeed}
-        ${answers.towingCapacity}`
+      .then((answers) => {
+         const truck = new Truck(
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          [],
+          parseInt(answers.towingCapacity)
+        );
+        
+        this.vehicles.push(truck);
+        this.selectedVehicleVin = truck.vin;
+        this.performActions();
 
         
         // TODO: Use the answers object to pass the required properties to the Truck constructor
@@ -278,6 +255,20 @@ class Cli {
         },
       ])
       .then((answers) => {
+        const motorBike = new Motorbike(
+          Cli.generateVin(),
+          answers.color,
+          answers.make,
+          answers.model,
+          parseInt(answers.year),
+          parseInt(answers.weight),
+          parseInt(answers.topSpeed),
+          []
+        );
+
+        this.vehicles.push(motorBike);
+        this.selectedVehicleVin = motorBike.vin;
+        this.performActions();
         // TODO: Use the answers object to pass the required properties to the Motorbike constructor
         // TODO: push the motorbike to the vehicles array
         // TODO: set the selectedVehicleVin to the vin of the motorbike
