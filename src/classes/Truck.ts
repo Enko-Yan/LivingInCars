@@ -27,7 +27,8 @@ class Truck extends Vehicle implements AbleToTow {
     topSpeed: number,
     wheels: Wheel[],
     towingCapacity: number,
-) {
+  ) {
+
   super();
 
   this.vin = vin;
@@ -37,12 +38,13 @@ class Truck extends Vehicle implements AbleToTow {
   this.year = year;
   this.weight = weight;
   this.topSpeed = topSpeed;
-  this.wheels = wheels;
   this.towingCapacity = towingCapacity;
 
-  this.wheels = (wheels.length !== 4) 
-  ? [new Wheel(), new Wheel(), new Wheel(), new Wheel()] 
-  : wheels;
+  if (wheels.length !== 4) {
+    this.wheels = [new Wheel(), new Wheel(), new Wheel(), new Wheel()];
+  } else {
+    this.wheels = wheels;
+  }
 
 }
 
@@ -67,22 +69,38 @@ class Truck extends Vehicle implements AbleToTow {
       console.log("No vehicle make or model available.");
     }
 
-    vehicle.weight <= this.towingCapacity 
-    ? console.log(`Your ${vehicleMake} ${vehicleModel} is getting towed!`) 
-    : console.log(`Your ${vehicleMake} ${vehicleModel} is too heavy to tow.`); 
+    if (vehicle.weight <= this.towingCapacity) {
+      console.log(`Your ${vehicleMake} ${vehicleModel} is getting towed!`);
+    } else {
+      console.log(`Your ${vehicleMake} ${vehicleModel} is too heavy to tow.`);
+    }
+  } 
 
+  
 
     // ✅TODO: Get the make an model of the vehicle if it exists
     // ✅TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
     // ✅TODO: If it is, log that the vehicle is being towed
     // ✅TODO: If it is not, log that the vehicle is too heavy to be towed
-  }
+  
 
-  // TODO: Override the printDetails method from the Vehicle class
-    // TODO: The method should call the printDetails method of the parent class
-    // TODO: The method should log the details of the Truck
-    // TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
+  // ✅TODO: Override the printDetails method from the Vehicle class
+    // ✅TODO: The method should call the printDetails method of the parent class
+    // ✅TODO: The method should log the details of the Truck
+    // ✅TODO: The details should include the VIN, make, model, year, weight, top speed, color, towing capacity, and wheels
+  override printDetails(): void {
+    super.printDetails();
+    console.log(`vin: ${this.vin}`);
+    console.log(`color: ${this.color}`); 
+    console.log(`make: ${this.make}`);  
+    console.log(`model: ${this.model}`); 
+    console.log(`year ${this.year}`); 
+    console.log(`weight: ${this.weight}`); 
+    console.log(`top speed: ${this.topSpeed}`);
+    console.log(`wheels: ${this.wheels}`);
+    console.log(`capacity: ${this.towingCapacity}`); 
+  }
 }
 
-// Export the Truck class as the default export
+// ✅Export the Truck class as the default export
 export default Truck;
