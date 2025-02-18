@@ -64,7 +64,13 @@ class Motorbike extends Vehicle {
     console.log(`year ${this.year}`); 
     console.log(`weight: ${this.weight}`); 
     console.log(`top speed: ${this.topSpeed}`);
-    console.log(`wheels: ${this.wheels}`);
+    
+    console.log(
+      `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
+    );
   }
   // TODO: Override the printDetails method from the Vehicle class
   // TODO: The method should call the printDetails method of the parent class

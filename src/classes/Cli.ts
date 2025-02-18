@@ -70,9 +70,9 @@ class Cli {
           // create a car
           this.createCar();
         } else if (answers.vehicleType === 'Truck') {
-          this.createTruck
+          this.createTruck();
         } else if (answers.vehicleType === 'Motorbike') {
-          this.createMotorbike
+          this.createMotorbike();
         }
         // ✅TODO: add statements to create a truck or motorbike if the user selects the respective vehicle type
       });
