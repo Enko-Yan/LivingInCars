@@ -4,7 +4,6 @@ import Truck from "./Truck.js";
 import Car from "./Car.js";
 import Motorbike from "./Motorbike.js";
 import Wheel from "./Wheel.js";
-import Vehicle from "./Vehicle.js";
 
 // define the Cli class
 class Cli {
@@ -106,6 +105,46 @@ class Cli {
           name: 'topSpeed',
           message: 'Enter Top Speed',
         },
+        {
+          type: 'input',
+          name: 'frontLeftWheelDiameter',
+          message: 'Enter Front Left Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'frontLeftWheelBrand',
+          message: 'Enter Front Left Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'frontRightWheelDiameter',
+          message: 'Enter Front Right Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'frontRightWheelBrand',
+          message: 'Enter Front Right Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'rearLeftWheelDiameter',
+          message: 'Enter Rear Left Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'rearLeftWheelBrand',
+          message: 'Enter Rear Left Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'rearRightWheelDiameter',
+          message: 'Enter Rear Right Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'rearRightWheelBrand',
+          message: 'Enter Rear Right Wheel Brand',
+        },
       ])
       .then((answers) => {
         const car = new Car(
@@ -116,7 +155,12 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          []
+          [
+            new Wheel(parseInt(answers.frontLeftWheelDiameter), answers.frontLeftWheelBrand),
+            new Wheel(parseInt(answers.frontRightWheelDiameter), answers.frontRightWheelBrand),
+            new Wheel(parseInt(answers.rearLeftWheelDiameter), answers.rearLeftWheelBrand),
+            new Wheel(parseInt(answers.rearRightWheelDiameter), answers.rearRightWheelBrand)
+          ]
         );
         // push the car to the vehicles array
         this.vehicles.push(car);
@@ -164,6 +208,46 @@ class Cli {
         },
         {
           type: 'input',
+          name: 'frontLeftWheelDiameter',
+          message: 'Enter Front Left Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'frontLeftWheelBrand',
+          message: 'Enter Front Left Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'frontRightWheelDiameter',
+          message: 'Enter Front Right Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'frontRightWheelBrand',
+          message: 'Enter Front Right Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'rearLeftWheelDiameter',
+          message: 'Enter Rear Left Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'rearLeftWheelBrand',
+          message: 'Enter Rear Left Wheel Brand',
+        },
+        {
+          type: 'input',
+          name: 'rearRightWheelDiameter',
+          message: 'Enter Rear Right Wheel Diameter',
+        },
+        {
+          type: 'input',
+          name: 'rearRightWheelBrand',
+          message: 'Enter Rear Right Wheel Brand',
+        },
+        {
+          type: 'input',
           name: 'towingCapacity',
           message: 'Enter Towing Capacity',
         },
@@ -177,8 +261,13 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [],
-          parseInt(answers.towingCapacity),
+          [
+            new Wheel(parseInt(answers.frontLeftWheelDiameter), answers.frontLeftWheelBrand),
+            new Wheel(parseInt(answers.frontRightWheelDiameter), answers.frontRightWheelBrand),
+            new Wheel(parseInt(answers.rearLeftWheelDiameter), answers.rearLeftWheelBrand),
+            new Wheel(parseInt(answers.rearRightWheelDiameter), answers.rearRightWheelBrand)
+          ],
+          parseInt(answers.towingCapacity)
         );
         
         this.vehicles.push(truck);
@@ -251,7 +340,10 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          []
+          [
+            new Wheel(parseInt(answers.frontWheelDiameter), answers.frontWheelBrand),
+            new Wheel(parseInt(answers.rearWheelDiameter), answers.rearWheelBrand)
+          ]
         );
 
         this.vehicles.push(motorBike);
