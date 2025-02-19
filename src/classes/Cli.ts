@@ -280,10 +280,10 @@ class Cli {
         const vehicleToTow = answers.vehicleToTow as Car | Truck | Motorbike;
         if (vehicleToTow === truck) {
           console.log("The truck cannot tow itself!");
-          this.performActions;
+          this.performActions();
         } else {
           truck.tow(vehicleToTow);
-          this.performActions;
+          this.performActions();
         }
       });
   }
